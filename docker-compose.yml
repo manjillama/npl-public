@@ -1,0 +1,17 @@
+version: "3"
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: yatrimotorcycles/np-goverment-api-server:v1
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - PORT=3005
+    ports:
+      - "3005:3005"
+    volumes:
+      - ./api:/app
+    command: ["yarn", "dev"]
