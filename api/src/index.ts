@@ -16,7 +16,7 @@ const server = app.listen(PORT, () => {
 
   logger.info(`✅ Server listening on port ${PORT}`);
   logger.info(`🚀 Deploy stage: ${process.env.NODE_ENV}`);
-  logger.info(`🟢 Server: ${app.locals.title}`);
+  logger.info(`🟢 Server: ${app.locals.title} ${app.locals.version}`);
 });
 
 // Handle unhandled promise rejection - Asynchronous
