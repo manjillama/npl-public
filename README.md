@@ -41,6 +41,14 @@ Open-source platform created by Yatri Motorcycles, dedicated to make daily life 
 
 - You can also execute the commands as usual by entering into the container: `docker-compose exec <service_name> bash`. It gives a bash shell.
 
+## Contributors
+
+<a href="https://github.com/yatri-motorcycles/np-public-restroom/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=yatri-motorcycles/np-public-restroom" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
 ## License
 
 See the [LICENSE](./LICENSE) file for licensing information.
