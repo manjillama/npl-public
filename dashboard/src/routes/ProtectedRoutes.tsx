@@ -1,9 +1,38 @@
 import React, { ReactNode } from "react";
+import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
-import NotFound from "../components/commons/NotFound";
+import NotFoundPage from "../components/commons/NotFound";
+import { ROLES } from "../constants";
+import { Homepage } from "../pages";
 import { selectAuth } from "../slices/auth";
 
-function ProtectedRoute({
+function ProtectedRoute() {
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <PrivateRoute
+            authorizedRoles={[ROLES.admin]}
+            component={<Homepage />}
+          />
+        }
+      />
+      <Route
+        path="/restrooms"
+        element={
+          <PrivateRoute
+            authorizedRoles={[ROLES.admin]}
+            component={<Homepage />}
+          />
+        }
+      />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  );
+}
+
+function PrivateRoute({
   component,
   authorizedRoles,
 }: {
@@ -16,7 +45,7 @@ function ProtectedRoute({
     return auth?.user.roles.includes(role);
   });
 
-  return isAuthorized ? <>{component}</> : <NotFound />;
+  return isAuthorized ? <>{component}</> : <NotFoundPage />;
 }
 
 export default ProtectedRoute;

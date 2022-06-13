@@ -1,5 +1,5 @@
 import React, { ReactNode, SyntheticEvent } from "react";
-import { Form as BootstrapForm } from "react-bootstrap";
+import { Form as BootstrapForm, Spinner } from "react-bootstrap";
 
 export * from "./TextInput";
 export * from "./TextArea";
@@ -24,19 +24,11 @@ export const Form = ({
       className="btn btn-primary"
       style={{ position: "relative", padding: ".5rem 2.5rem" }}
     >
-      {submitting && (
-        <div
-          className="spi"
-          style={{
-            position: "absolute",
-            height: 15,
-            width: 15,
-            top: 9,
-            left: 9,
-          }}
-        />
+      {submitting ? (
+        <Spinner as="span" animation="border" size="sm" role="status" />
+      ) : (
+        btnTitle ?? "Save"
       )}
-      {btnTitle ?? "Save"}
     </button>
   </BootstrapForm>
 );

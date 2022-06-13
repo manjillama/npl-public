@@ -1,7 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Form, TextInput } from "../../components/form-ui";
-import { Container, Row, Col, Alert, Button } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import { login } from "../../slices/auth";
 import { AppDispatch } from "../../store";
 import { formatAxiosError } from "../../utils";

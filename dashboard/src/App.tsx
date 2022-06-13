@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { FullScreenLoader } from "./components/commons/Loader";
 import { init } from "./slices/auth";
 import { AppDispatch } from "./store";
-import "./theme/styles.scss";
+import "./theme/global.scss";
 
 const App = ({ children }: { children: React.ReactNode }) => {
   const [fetching, setFetching] = useState(true);
