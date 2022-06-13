@@ -10,4 +10,14 @@ export function loadDB(): void {
       useCreateIndex: true,
     })
     .then(() => logger.info(`🗄  Connected to MongoDB`));
+
+  /**
+   * https://stackoverflow.com/a/61184741
+   */
+  mongoose.set('toJSON', {
+    virtuals: true,
+    transform: (doc, converted) => {
+      delete converted._id;
+    },
+  });
 }

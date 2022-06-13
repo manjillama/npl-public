@@ -3,6 +3,13 @@ import IStaff from '../interfaces/IStaff';
 import Staff from '../models/staff.model';
 import { AppError } from '../utils/errors';
 
+export function loginResponse(token: string, user: IStaff) {
+  // Remove password from output
+  user.password = undefined;
+
+  return { token, user };
+}
+
 /**
  * @param  {string} email email
  * @param  {string} password password
@@ -21,5 +28,5 @@ export async function loginService(email: string, password: string): Promise<{ t
   user.password = undefined;
 
   // 3) If everything ok, send token to client
-  return { token, user };
+  return loginResponse(token, user);
 }
