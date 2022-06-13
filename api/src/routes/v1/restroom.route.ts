@@ -5,7 +5,7 @@ import { restRoomJoiSchema } from '../../models/restroom.model';
 
 const router = Router();
 
-router.get('/', restroomController.getAllEnabledRestrooms);
+router.get('/', restroomController.getAllRestrooms);
 router.get('/within/:distance/center/:latlng/:unit', restroomController.getRestroomWithin);
 router.get('/:restroomId', restroomController.getOneRestroom);
 router.get('/count', restroomController.getRestroomsCount);

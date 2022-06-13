@@ -4,8 +4,8 @@ import userController from '../../controllers/user.controller';
 
 const router = Router();
 
-router.get('/current-user', authController.getLoggedInUser);
-router.patch('/current-user', userController.updateUser);
-router.put('/current-user/change-password', userController.updateUserPassword);
+router.route('/').get(authController.getLoggedInUser).patch(userController.updateUser);
+router.route('/api-key').get(userController.getUserApiKey).put(userController.updateUserApiKey);
+router.put('/change-password', userController.updateUserPassword);
 
 export default router;

@@ -6,6 +6,32 @@ import { AppError } from '../utils/errors';
 import Staff from '../models/staff.model';
 import { IRequest } from '../interfaces/IRequest';
 import { keys } from '../config';
+import { encrypt } from '../utils/cryptify';
+
+export const authenticateUsingApiKey = async (
+  req: IRequest,
+  res: Response,
+  next: NextFunction,
+): Promise<void | NextFunction> => {
+  // 1) Getting api key and check of it's there
+  const key = req.headers.key as string;
+
+  if (!key) throw new AppError('Missing api key', StatusCodes.UNAUTHORIZED);
+
+  // 2) Encrypt api key
+  const apiKey = encrypt(key);
+
+  // 3) Fetching user using key and check if it's there
+  const user = await Staff.findOne({
+    apiKey,
+    enabled: true,
+  });
+
+  if (!user) throw new AppError('Invalid api key', StatusCodes.UNAUTHORIZED);
+
+  req.user = user;
+  next();
+};
 
 export const authenticate = async (req: IRequest, res: Response, next: NextFunction): Promise<void | NextFunction> => {
   // 1) Getting token and check of it's there

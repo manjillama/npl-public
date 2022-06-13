@@ -4,11 +4,10 @@ import Restroom from '../models/restroom.model';
 import { IRequest } from '../interfaces/IRequest';
 import factoryService from '../services/factory.service';
 
-const getAllEnabledRestrooms = async (req: IRequest, res: Response): Promise<void> => {
+const getAllRestrooms = async (req: IRequest, res: Response): Promise<void> => {
   const [restrooms, total, size] = await factoryService
     .getAll(Restroom, {
       ...req.query,
-      isEnabled: true,
     })
     .exec();
 
@@ -79,7 +78,7 @@ const getRestroomWithin = async (req: IRequest, res: Response): Promise<void> =>
 };
 
 export default {
-  getAllEnabledRestrooms,
+  getAllRestrooms,
   addRestroom,
   updateRestroom,
   getOneRestroom,

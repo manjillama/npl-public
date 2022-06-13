@@ -1,9 +1,12 @@
 import { Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import crypto from 'crypto';
 import _ from 'lodash';
 import { AppError } from '../utils/errors';
 import { IRequest } from '../interfaces/IRequest';
 import factoryService from '../services/factory.service';
+import Staff from '../models/staff.model';
+import { encrypt } from '../utils/cryptify';
 
 const updateUser = async (req: IRequest, res: Response): Promise<void> => {
   const userData = _.pick(req.body, ['name', 'email', 'phoneNumber']);
@@ -39,4 +42,32 @@ const updateUserPassword = async (req: IRequest, res: Response): Promise<void> =
   });
 };
 
-export default { updateUser, updateUserPassword };
+const getUserApiKey = async (req: IRequest, res: Response): Promise<void> => {
+  const { apiKey } = await factoryService.getById(Staff, req.user.id, 'User').select('apiKey').exec();
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    data: {
+      apiKey,
+    },
+  });
+};
+
+const updateUserApiKey = async (req: IRequest, res: Response): Promise<void> => {
+  const user = await factoryService.getById(Staff, req.user.id, 'User').select('+apiKey').exec();
+
+  const apiKey = crypto.randomBytes(24).toString('hex');
+
+  user.apiKey = encrypt(apiKey);
+
+  await user.save();
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    data: {
+      apiKey,
+    },
+  });
+};
+
+export default { updateUser, updateUserPassword, getUserApiKey, updateUserApiKey };
