@@ -7,22 +7,22 @@ import { ROLES } from "../../constants";
 import AuthorizeView from "../../components/authorize-view";
 import { AiFillHome } from "react-icons/ai";
 import { FaRestroom } from "react-icons/fa";
-import "./styles.scss";
+import styles from "./styles.module.scss";
 
 export const withDashboard =
   (ChildComponent: ComponentType<any>) => (props: any) =>
     (
-      <div id="mjlApp">
-        <nav className="nav-right">
-          <div className="nav-brand d-flex">
-            <div className="img-wrap">
+      <div id="mjlDash">
+        <nav className={`${styles.navRight} nav-right`}>
+          <div className={styles.navBrand}>
+            <div className={styles.imgWrap}>
               <img src="/favicon.ico" alt="logo" />
             </div>
           </div>
-          <ul className="nav-links neutralize">
+          <ul className={styles.navLinks}>
             <li>
               <NavLink to="/">
-                <div className="s-icon">
+                <div className={styles.sIcon}>
                   <AiFillHome />
                 </div>{" "}
                 Home
@@ -31,7 +31,7 @@ export const withDashboard =
             <li>
               <AuthorizeView authorizedRoles={[ROLES.admin]}>
                 <NavLink to="/restrooms">
-                  <div className="s-icon">
+                  <div className={styles.sIcon}>
                     <FaRestroom />
                   </div>{" "}
                   Restrooms
@@ -62,10 +62,10 @@ export const withDashboard =
             </div>
           </div>
         </nav>
-        <div className="_main_panel">
+        <div className={styles.mainPanel}>
           <TopNav />
-          <div className="_bod_wrap">
-            <div className="_bod_content">
+          <div className={styles.bodyWrap}>
+            <div className={styles.bodyContent}>
               <ChildComponent {...props} />
             </div>
           </div>

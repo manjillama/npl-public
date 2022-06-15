@@ -1,12 +1,17 @@
 $theme-colors: (
   "primary": #19212e,
-  "danger": #ff4136,
+  "secondary": #6c757d,
+  "danger": #dc3545,
+  "success": #28a745,
+  "warning": #ffc107,
+  "dark": #212529,
+  "light": #198754,
 );
 
 $font-stack: "Roboto", sans-serif;
 
 $primary-color: #19212e;
-$secondary-color: rgb(34, 34, 34);
+$secondary-color: #222222;
 $danger-color: #f44336;
 $success-color: #28a745;
 $warning-color: #c99700;

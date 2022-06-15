@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NotFoundPage from "../components/commons/NotFound";
 import { ROLES } from "../constants";
-import { Homepage } from "../pages";
+import { Homepage, RestroomsPage } from "../pages";
 import { selectAuth } from "../slices/auth";
 
 function ProtectedRoute() {
@@ -23,7 +23,7 @@ function ProtectedRoute() {
         element={
           <PrivateRoute
             authorizedRoles={[ROLES.admin]}
-            component={<Homepage />}
+            component={<RestroomsPage />}
           />
         }
       />

@@ -8,5 +8,6 @@ export interface IRestroom {
   location: {
     coordinates: [lng: number, lat: number];
   };
+  isEnabled: boolean;
   remarks: string;
 }

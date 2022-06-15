@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IUser } from "../../interfaces";
 import { logout, selectAuth } from "../../slices/auth";
 import { AppDispatch } from "../../store";
-import "./styles.scss";
+import styles from "./styles.module.scss";
 
 const TopNav: FunctionComponent = () => {
   const auth = useSelector(selectAuth);
@@ -15,7 +15,7 @@ const TopNav: FunctionComponent = () => {
   let appNode: HTMLElement | null;
 
   function onMenuIconClick() {
-    if (!appNode) appNode = document.getElementById("mjlApp");
+    if (!appNode) appNode = document.getElementById("mjlDash");
 
     if (appNode) {
       const { classList } = appNode;
@@ -30,8 +30,12 @@ const TopNav: FunctionComponent = () => {
   }
 
   return (
-    <nav className="nav-top d-flex">
-      <Button variant="link" onClick={onMenuIconClick} className="hamburger">
+    <nav className={styles.navTop}>
+      <Button
+        variant="ghost"
+        onClick={onMenuIconClick}
+        className={styles.hamburger}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
@@ -44,15 +48,15 @@ const TopNav: FunctionComponent = () => {
 
       <div></div>
 
-      <ul className="nav-links neutralize list-inline">
+      <ul className={`${styles.navLinks} list-inline`}>
         <li className="dropdown">
           <Dropdown>
             <Dropdown.Toggle
-              variant="link"
+              variant="ghost"
               id="dropdown-basic"
               style={{ display: "inline-block" }}
             >
-              <div className="nav-avatar">{user.name.charAt(0)}</div>
+              <div className={styles.navAvatar}>{user.name.charAt(0)}</div>
               <strong>{user.name}</strong>
             </Dropdown.Toggle>
 
