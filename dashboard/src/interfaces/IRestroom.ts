@@ -11,3 +11,8 @@ export interface IRestroom {
   isEnabled: boolean;
   remarks: string;
 }
+export interface IRestroomType extends Partial<IRestroom> {
+  location: {
+    coordinates: [lng: number, lat: number];
+  };
+}

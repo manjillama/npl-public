@@ -25,6 +25,7 @@ export const REST_ROOM_TYPE = [
   "Event Management",
   "Finance Companies",
   "Garments / Carpet Industries",
+  "Government",
   "Hardware / Network Companies",
   "Hospital /  Clinic / Diagnostic Centre",
   "Hotels / Resorts / Restaurant",
