@@ -19,8 +19,8 @@ const sendError = (error: AppError, req: Request, res: Response) => {
 
   const errorResponse = {
     status: error.status,
-    message: error.message,
-    stack: error.stack
+    message: error.statusCode !== 500 ? error.message : 'Internal server error',
+    stack: error.stack,
   };
 
   // Add error stack response only in development mode

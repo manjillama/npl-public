@@ -24,6 +24,7 @@ Open-source platform created by Yatri Motorcycles, dedicated to make daily life 
 
 - api: API server
 - app: Mobile app
+- dashboard: Admin dashboard
 
 ## Individual setup
 

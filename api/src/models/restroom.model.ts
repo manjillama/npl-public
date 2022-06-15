@@ -61,6 +61,7 @@ export const restRoomJoiSchema = Joi.object({
         'any.required': `Location array is required [lng, lat]`,
       }),
     })
+    .unknown(true)
     .required(),
 }).unknown(true);
 
