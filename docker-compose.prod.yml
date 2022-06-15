@@ -12,3 +12,16 @@ services:
       - PORT=3005
     ports:
       - "3005:3005"
+
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile.prod
+    image: yatrimotorcycles/np-goverment-dashboard:v1
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - PORT=3006
+    ports:
+      - "3006:3006"

@@ -1,0 +1,22 @@
+FROM node:14-alpine
+
+WORKDIR '/app'
+
+COPY ./package.json ./
+COPY ./yarn.lock ./
+
+RUN yarn install
+
+COPY . .
+
+RUN yarn build
+
+# remove development dependencies
+# RUN npm prune --production
+
+FROM nginx
+
+# Copy something from builder which is /app/build folder and paste it to /use/share/nginx/html dir which is root nginx server folder
+COPY --from=0 /app/build /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d

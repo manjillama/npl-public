@@ -15,3 +15,19 @@ services:
     volumes:
       - ./api:/app
     command: ["yarn", "dev"]
+
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    image: yatrimotorcycles/np-goverment-dashboard:v1
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - PORT=3006
+    ports:
+      - "3006:3006"
+    volumes:
+      - /app/node_modules
+      - ./dashboard:/app
