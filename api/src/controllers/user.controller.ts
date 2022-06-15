@@ -70,4 +70,36 @@ const updateUserApiKey = async (req: IRequest, res: Response): Promise<void> => 
   });
 };
 
-export default { updateUser, updateUserPassword, getUserApiKey, updateUserApiKey };
+const getBasicProfileInfo = async (req: IRequest, res: Response): Promise<void> => {
+  const { user } = req;
+  user.password = undefined;
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    data: {
+      user,
+    },
+  });
+};
+
+const updateUserProfile = async (req: IRequest, res: Response): Promise<void> => {
+  const userData = _.pick(req.body, ['name', 'phoneNumber', 'email']);
+
+  const user = await factoryService.updateOneByDocument(req.user, userData);
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    data: {
+      user,
+    },
+  });
+};
+
+export default {
+  updateUser,
+  updateUserPassword,
+  getUserApiKey,
+  updateUserApiKey,
+  getBasicProfileInfo,
+  updateUserProfile,
+};

@@ -4,6 +4,7 @@ import RestroomsPage from "./restrooms";
 import AddRestroomPage from "./add-restroom";
 import RestroomPage from "./restroom";
 import UpdateRestroomPage from "./update-restroom";
+import ProfilePage from "./profile";
 
 export {
   LoginPage,
@@ -12,4 +13,5 @@ export {
   AddRestroomPage,
   RestroomPage,
   UpdateRestroomPage,
+  ProfilePage,
 };

@@ -6,6 +6,7 @@ import { ROLES } from "../constants";
 import {
   AddRestroomPage,
   Homepage,
+  ProfilePage,
   RestroomPage,
   RestroomsPage,
   UpdateRestroomPage,
@@ -57,6 +58,15 @@ function ProtectedRoute() {
           <PrivateRoute
             authorizedRoles={[ROLES.admin]}
             component={<UpdateRestroomPage />}
+          />
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute
+            authorizedRoles={[ROLES.admin]}
+            component={<ProfilePage />}
           />
         }
       />

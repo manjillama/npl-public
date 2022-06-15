@@ -17,9 +17,12 @@ const authSlice = createSlice({
     onLogin: (state, action: PayloadAction<any>) => {
       state.auth = action.payload;
     },
+    onUserUpdate: (state, action: PayloadAction<IUser>) => {
+      (state.auth as Auth).user = action.payload;
+    },
   },
 });
-const { onLogin } = authSlice.actions;
+const { onLogin, onUserUpdate } = authSlice.actions;
 
 export const login =
   (loginProps: { email: string; password: string }) =>
@@ -34,6 +37,10 @@ export const login =
 export const logout = () => async (dispatch: AppDispatch) => {
   localStorage.removeItem("token");
   window.location.href = "/";
+};
+
+export const updateUser = (data: IUser) => async (dispatch: AppDispatch) => {
+  dispatch(onUserUpdate(data));
 };
 
 export const init = () => async (dispatch: AppDispatch) => {
