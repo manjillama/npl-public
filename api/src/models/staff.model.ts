@@ -128,8 +128,8 @@ export const staffJoiSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().required(),
   phoneNumber: Joi.string().required(),
-  password: Joi.number().required(),
-  roles: Joi.array().valid(...Object.values(ROLES)),
+  password: Joi.string().required(),
+  roles: Joi.array().items(...Object.values(ROLES)),
 }).unknown(true);
 
 export default Staff;

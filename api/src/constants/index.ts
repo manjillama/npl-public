@@ -2,6 +2,7 @@ export enum ROLES {
   admin = 'ROLE_ADMIN',
   editor = 'ROLE_EDITOR',
   contributor = 'ROLE_CONTRIBUTOR',
+  patron = 'ROLE_PATRON',
 }
 
 export const REST_ROOM_TYPE = [

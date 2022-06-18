@@ -5,11 +5,14 @@ import NotFoundPage from "../components/commons/NotFound";
 import { ROLES } from "../constants";
 import {
   AddRestroomPage,
+  AddStaffPage,
   Homepage,
   ProfilePage,
   RestroomPage,
   RestroomsPage,
+  StaffsPage,
   UpdateRestroomPage,
+  UpdateStaffPage,
 } from "../pages";
 import { selectAuth } from "../slices/auth";
 
@@ -67,6 +70,33 @@ function ProtectedRoute() {
           <PrivateRoute
             authorizedRoles={[ROLES.admin]}
             component={<ProfilePage />}
+          />
+        }
+      />
+      <Route
+        path="/staffs"
+        element={
+          <PrivateRoute
+            authorizedRoles={[ROLES.admin]}
+            component={<StaffsPage />}
+          />
+        }
+      />
+      <Route
+        path="/staffs/add"
+        element={
+          <PrivateRoute
+            authorizedRoles={[ROLES.admin]}
+            component={<AddStaffPage />}
+          />
+        }
+      />
+      <Route
+        path="/staffs/:staffId/edit"
+        element={
+          <PrivateRoute
+            authorizedRoles={[ROLES.admin]}
+            component={<UpdateStaffPage />}
           />
         }
       />

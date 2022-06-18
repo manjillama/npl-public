@@ -6,7 +6,8 @@ import TopNav from "../../components/top-nav";
 import { ROLES } from "../../constants";
 import AuthorizeView from "../../components/authorize-view";
 import { AiFillHome } from "react-icons/ai";
-import { FaRestroom } from "react-icons/fa";
+import { FaRestroom, FaUsers } from "react-icons/fa";
+
 import styles from "./styles.module.scss";
 
 export const withDashboard =
@@ -35,6 +36,16 @@ export const withDashboard =
                     <FaRestroom />
                   </div>{" "}
                   Restrooms
+                </NavLink>
+              </AuthorizeView>
+            </li>
+            <li>
+              <AuthorizeView authorizedRoles={[ROLES.admin]}>
+                <NavLink to="/staffs">
+                  <div className={styles.sIcon}>
+                    <FaUsers />
+                  </div>{" "}
+                  Staffs
                 </NavLink>
               </AuthorizeView>
             </li>

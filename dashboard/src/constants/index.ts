@@ -1,9 +1,10 @@
 export enum ROLES {
   admin = "ROLE_ADMIN",
-  ecStaff = "ROLE_EC_STAFF",
-  serviceCenterStaff = "ROLE_SERVICE_CENTER_STAFF",
-  level1 = "ROLE_LEVEL_1",
+  editor = "ROLE_EDITOR",
+  contributor = "ROLE_CONTRIBUTOR",
+  patron = "ROLE_PATRON",
 }
+
 export const REST_ROOM_TYPE = [
   "Advertising Agency",
   "Airlines / GSA",
@@ -25,7 +26,6 @@ export const REST_ROOM_TYPE = [
   "Event Management",
   "Finance Companies",
   "Garments / Carpet Industries",
-  "Government",
   "Hardware / Network Companies",
   "Hospital /  Clinic / Diagnostic Centre",
   "Hotels / Resorts / Restaurant",

@@ -8,3 +8,4 @@ export interface Auth {
 export * from "./IUser";
 export * from "./IRestroom";
 export * from "./Mappable";
+export * from "./IStaff";
