@@ -69,7 +69,7 @@ export const withDashboard =
                 background: "rgba(255, 255, 255, 0.02)",
               }}
             >
-              &copy; Yatri Motorcycles
+              &copy; Manjil Tamang
             </div>
           </div>
         </nav>

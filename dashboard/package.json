@@ -2,7 +2,7 @@
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
-  "author": "Manjil Tamang <hello@manjiltamang.com>, Yatri Motorcycles <info@yatrimotorcycles.com>",
+  "author": "Manjil Tamang <hello@manjiltamang.com>",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.14.1",

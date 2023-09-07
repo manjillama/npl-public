@@ -4,7 +4,7 @@ Developers are required to read through the general coding guidelines and follow
 
 ## Github
 
-Guidelines to follow when contributing to the Yatri codebase
+Guidelines to follow when contributing to the codebase
 
 ### Branch Naming Convention
 
@@ -42,7 +42,7 @@ The following convention should be followed:
     - Features should follow: `feature: <short-new-feature-description>`
     - Bug fix should follow: `fix: <short-bug-description>`
     - i.e. `fix: update prettier config`
-  - Refer to <a href="https://github.com/yatri-motorcycles/conventional-commit-types">conventional commit types</a> for list of commit types.
+  - Refer to <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commit types</a> for list of commit types.
 
 ### Pull Request Best Practices
 

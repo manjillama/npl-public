@@ -4,7 +4,7 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile
-    image: yatrimotorcycles/np-goverment-api-server:v1
+    image: manjiltamang/np-goverment-api-server:v1
     restart: always
     env_file:
       - .env
@@ -20,7 +20,7 @@ services:
     build:
       context: ./dashboard
       dockerfile: Dockerfile
-    image: yatrimotorcycles/np-goverment-dashboard:v1
+    image: manjiltamang/np-goverment-dashboard:v1
     restart: always
     env_file:
       - .env
